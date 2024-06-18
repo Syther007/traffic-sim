@@ -27,6 +27,10 @@ else
     echo "Output directory already exists."
 fi
 
+# Create a timestamped log file
+log_file=$(date +"%Y-%m-%d_%H-%M-%S").log
+echo "Starting script execution at $(date)..." >> $log_file
+
 # Initialize variables to track the total downloaded size and count
 total_size=0
 download_count=0
@@ -54,11 +58,11 @@ while IFS= read -r url; do
         total_size=$((total_size+file_size))
     fi
     download_count=$((download_count+1))
-    echo "Downloaded $url (size: ${file_size} bytes)"
+    echo "$(date) - Downloaded $url (size: ${file_size} bytes)" >> $log_file
 
     # Print a progress report
     progress=$(echo "scale=2; ($download_count / $(wc -l < "$input_file")) * 100" | bc -l)
-    echo "Progress: $progress% ($download_count/$(( $(wc -l < "$input_file") )))"
+    echo "$(date) - Progress: $progress% ($download_count/$(( $(wc -l < "$input_file") )))" >> $log_file
 
     # Add a random delay within the specified range
     sleep $((RANDOM % ($max_delay - $min_delay + 1) + $min_delay))
@@ -68,5 +72,8 @@ done < "$input_file"
 total_size_mb=$(echo "$total_size / 1024 / 1024" | bc -l)
 
 # Print the total downloaded size and count
-echo "Total downloaded size: ${total_size} bytes (approximately ${total_size_mb} MB)"
-echo "Total downloaded files: $download_count"
+echo "$(date) - Total downloaded size: ${total_size} bytes (approximately ${total_size_mb} MB)"
+echo "$(date) - Total downloaded files: $download_count" >> $log_file
+
+# Close the log file
+echo "$(date) - Script execution completed." >> $log_file

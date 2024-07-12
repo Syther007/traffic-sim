@@ -17,7 +17,7 @@ max_delay=5
 max_retries=3
 
 # Set the simulate_download variable to control the download behavior
-simulate_download=true
+simulate_download=false
 
 # Check if the output directory exists, create it if not
 if [ ! -d "$output_dir" ]; then

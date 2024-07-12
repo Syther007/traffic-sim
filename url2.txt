@@ -1,0 +1,8 @@
+https://github.com/QORT/qortal/releases/download/v1.2.0/qortal.jar
+https://github.com/QORT/qortal/releases/download/v1.2.0/qortal-1.2.0.zip
+https://github.com/PackageFlipper/notNotOdd/releases/download/v1.0.0/PapeChanger.dmg
+https://github.com/vim/vim/archive/refs/tags/v9.1.0571.zip
+https://github.com/timwangmusic/Vacation-Planner/archive/refs/tags/v1.0.zip
+https://github.com/wouterds/ikhaat.be/archive/refs/tags/3.2.1.zip
+https://github.com/RhythmusByte/Supercell/archive/refs/tags/v0.9.3.zip
+https://www.majorgeeks.com/index.php?ct=files&action=download&

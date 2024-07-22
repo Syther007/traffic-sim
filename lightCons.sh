@@ -35,6 +35,6 @@ do
         #echo $ArrCnt
         #echo echo ${allThreads[$ArrCnt]}
 
-        sleep 5
+        #sleep 5
 
 done 

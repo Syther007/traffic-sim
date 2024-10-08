@@ -1,0 +1,7 @@
+https://example.com
+https://wikipedia.org
+https://github.com
+https://w3schools.com
+https://duckduckgo.com
+https://stackoverflow.com
+https://mozilla.org

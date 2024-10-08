@@ -17,7 +17,15 @@ max_delay=5
 max_retries=3
 
 # Set the simulate_download variable to control the download behavior
-simulate_download=false
+simulate_download=true
+
+
+# Check if wget is installed
+if ! command -v wget &> /dev/null; then
+    echo "Error: wget is not installed. Please install wget to run this script."
+    exit 1
+fi
+
 
 # Check if the output directory exists, create it if not
 if [ ! -d "$output_dir" ]; then

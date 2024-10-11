@@ -15,7 +15,7 @@ ArrCnt=0;
 SUC=0;
 FAL=0;
 TOL=0;
-maxIterations=1000  # Set the desired number of iterations
+maxIterations=50000  # Set the desired number of iterations
 currentIteration=0
 
 totalDownloaded=0  # Initialize total downloaded size in bytes

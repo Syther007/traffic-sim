@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 log_file="logs/lightCons_cron_log_$(date +%Y-%m-%d).log"    # Set the log file name
-maxIterations=20000                                         # Set the number of iterations
+maxIterations=1000000                                       # Set the number of iterations
+delaySeconds=5                                              # Set the delay between calls in seconds
 
 allThreads=(
        "https://www.asite.com" 
@@ -68,7 +69,7 @@ do
     then 
         ((SUC=SUC+1))
         # Calculate the size of the downloaded file in bytes and convert to MB
-        downloadedSize=$(du -b "$tempFile" | cut -f1)
+        downloadedSize=$(wc -c < "$tempFile" | tr -d ' ')
         totalDownloaded=$((totalDownloaded + downloadedSize))
     else 
         ((FAL=FAL+1))
@@ -91,8 +92,14 @@ do
     rm "$tempFile"
 
     ((currentIteration++))  # Increment the current iteration count
+
+    # Rotate through the threads
+    ((ArrCnt++))
+    if (( ArrCnt > total )); then
+        ArrCnt=0
+    fi
+
+    sleep "$delaySeconds"
 done 
 
 
-
-cleanup()

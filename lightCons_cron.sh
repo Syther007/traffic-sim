@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
 
+# Usage: ./lightCons_cron.sh [maxIterations] [delaySeconds]
+# Example: ./lightCons_cron.sh 5000 10
+# Defaults: maxIterations=1000000, delaySeconds=5
+
 log_file="logs/lightCons_cron_log_$(date +%Y-%m-%d).log"    # Set the log file name
-maxIterations=1000000                                       # Set the number of iterations
-delaySeconds=5                                              # Set the delay between calls in seconds
+maxIterations=${1:-1000000}                                 # Set the number of iterations (configurable via param 1)
+delaySeconds=${2:-5}                                        # Set the delay between calls in seconds (configurable via param 2)
 
 allThreads=(
        "https://www.asite.com" 
